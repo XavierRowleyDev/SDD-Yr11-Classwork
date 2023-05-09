@@ -46,21 +46,21 @@ function updatebattery(){
 	batterystatus.style.width = charge + '%';
     frameRef = requestAnimationFrame(updatebattery);
     if (charge >= 100) {
-        cancelAnimationFrame(frameRef);
+		frameRef = requestAnimationFrame(drainBattery);
     }
 }
-	frameRef = requestAnimationFrame(updatebattery);
+
 
 //Drain the battery (NOT WORKING)
 function drainBattery(){
-    charge = charge - 1;
-    batterystatus.style.width = charge + '&';
+    charge -= 1;
+    batterystatus.style.width = charge + '%';
     frameRef = requestAnimationFrame(drainBattery);
     if (charge <= 0) {
         cancelAnimationFrame(frameRef);
     }
 }
-
+frameRef = requestAnimationFrame(updatebattery);
 
 
 			
